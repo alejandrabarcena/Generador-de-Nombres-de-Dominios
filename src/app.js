@@ -1,23 +1,41 @@
-let pronoun = ['the', 'our'];
-let adj = ['great', 'big'];
-let noun = ['jogger', 'racoon'];
-let extensions = ['.com', '.net', '.us', '.io'];
+let pronouns = ["the", "our"];
+let adjectives = ["great", "big"];
+let nouns = ["jogger", "racoon"];
+let extensions = [".com", ".net", ".us", ".io"];
 
-function generateRandomDomain() {
-  const p = pronoun[Math.floor(Math.random() * pronoun.length)];
-  const a = adj[Math.floor(Math.random() * adj.length)];
-  const n = noun[Math.floor(Math.random() * noun.length)];
-  const ext = extensions[Math.floor(Math.random() * extensions.length)];
+function generateDomains(keyword) {
+  let domains = [];
 
-  return `${p}${a}${n}${ext}`;
+  for (let p of pronouns) {
+    for (let a of adjectives) {
+      for (let n of nouns) {
+        for (let ext of extensions) {
+          domains.push(`${p}${a}${n}${keyword}${ext}`);
+        }
+      }
+    }
+  }
+
+  return domains;
 }
 
 window.onload = () => {
-  const button = document.querySelector("#generate-btn");
-  const output = document.querySelector("#generated-domain");
+  const btn = document.querySelector("#generate-btn");
+  const input = document.querySelector("#keyword");
+  const output = document.querySelector("#results");
 
-  button.addEventListener("click", () => {
-    const domain = generateRandomDomain();
-    output.textContent = domain;
+  btn.addEventListener("click", () => {
+    const keyword = input.value.trim();
+    if (!keyword) return;
+
+    const domains = generateDomains(keyword);
+    output.innerHTML = "<h4 class='mb-3'>🔎 Resultados:</h4>";
+
+    domains.forEach(domain => {
+      const p = document.createElement("p");
+      p.className = "text-primary";
+      p.textContent = domain;
+      output.appendChild(p);
+    });
   });
 };
