@@ -3,10 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Generador de Nombres de Dominio</title>
+    <title>Generador de Dominios</title>
 
-    <link rel="icon" href="./src/assets/img/4geeks.ico" />
-    <link rel="stylesheet" href="./src/style.css" />
+    <link rel="stylesheet" href="./style.css" />
 
     <!-- Bootstrap -->
     <link
@@ -16,21 +15,22 @@
   </head>
   <body class="bg-light">
     <div class="container text-center mt-5">
-      <h1 class="mb-4">Lista de dominios posibles</h1>
-      <img src="./src/assets/img/rigo.png" alt="Rigo" class="img-fluid my-3" />
-      <p class="alert alert-warning">
-        Si este texto <b>no</b> está centrado y en <b>amarillo</b>, probablemente tengas un error.
-      </p>
+      <h1 class="mb-4">🌐 Generador de Dominios</h1>
+      <p class="text-muted">Escribe una palabra y descubre combinaciones posibles</p>
 
-      <div id="domain-list" class="mt-4"></div>
+      <div class="input-group mb-3 justify-content-center">
+        <input type="text" id="keyword" class="form-control w-50" placeholder="ej. viajero, sparkle..." />
+        <button id="generate-btn" class="btn btn-primary">✨ Generar</button>
+      </div>
 
-      <footer class="fixed-bottom p-4 text-center">
-        Hecho con ❤️ por Alejandra Bárcena
+      <div id="results" class="mt-4"></div>
+
+      <footer class="text-center mt-5 mb-3 text-muted">
+        Hecho con ❤️ por Alejandra Bárcena en 
         <a href="https://www.4geeksacademy.com" target="_blank">4Geeks Academy</a>
       </footer>
     </div>
 
-    <script type="module" src="./src/app.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>
-
