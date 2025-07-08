@@ -1,220 +1,358 @@
 
-// Domain generation data
-const domainData = {
-  divertido: {
-    pronouns: ["the", "our", "my", "super"],
-    adjectives: ["funny", "crazy", "wild", "awesome", "epic", "mega", "ultra", "happy"],
-    nouns: ["jogger", "racoon", "party", "adventure", "smile", "dance", "laugh", "fun"]
-  },
-  profesional: {
-    pronouns: ["the", "our", "pro", "elite"],
-    adjectives: ["professional", "expert", "premium", "elite", "advanced", "smart", "top", "best"],
-    nouns: ["consulting", "solutions", "services", "group", "company", "firm", "agency", "corp"]
-  },
-  magico: {
-    pronouns: ["the", "our", "magic", "mystic"],
-    adjectives: ["magical", "mystic", "enchanted", "cosmic", "stellar", "divine", "sacred", "ethereal"],
-    nouns: ["wizard", "spell", "crystal", "potion", "realm", "dimension", "universe", "energy"]
-  },
-  "domain-hack": {
-    pronouns: ["", "my", "go", "get"],
-    adjectives: ["", "quick", "fast", "instant", "smart", "tech", "digital", "cyber"],
-    nouns: ["app", "tech", "hub", "lab", "code", "dev", "web", "net"]
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #4285F4 0%, #5A9FFF 50%, #4285F4 100%);
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Main Card */
+.main-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(66, 133, 244, 0.2);
+  border: none;
+  margin-bottom: 80px;
+}
+
+/* Header Section */
+.header-section {
+  background: linear-gradient(135deg, #4285F4, #5A9FFF);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.logo-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  max-width: 120px;
+  height: auto;
+  border-radius: 50%;
+  background: white;
+  padding: 15px;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.header-section h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.highlight {
+  color: white;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Category Section */
+.category-section {
+  margin-bottom: 25px;
+}
+
+.category-btn {
+  width: 100%;
+  height: 60px;
+  border-radius: 15px;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  color: #2d3748;
+}
+
+.category-btn.divertido {
+  background: #E3F2FD;
+  border: 2px solid #4285F4;
+}
+
+.category-btn.profesional {
+  background: #E3F2FD;
+  border: 2px solid #4285F4;
+}
+
+.category-btn.magico {
+  background: #E3F2FD;
+  border: 2px solid #4285F4;
+}
+
+.category-btn.domain-hack {
+  background: #E3F2FD;
+  border: 2px solid #4285F4;
+}
+
+.category-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(66, 133, 244, 0.3);
+  background: #BBDEFB;
+}
+
+.category-btn.active {
+  background: #4285F4 !important;
+  color: white !important;
+  box-shadow: 0 8px 20px rgba(66, 133, 244, 0.4);
+}
+
+/* Instructions Section */
+.instructions-section {
+  background: #E3F2FD;
+  border: 2px solid #4285F4;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.instructions-section p {
+  margin: 0;
+  font-size: 1rem;
+  color: #2d3748;
+  line-height: 1.4;
+}
+
+/* Input Section */
+.input-section {
+  margin-bottom: 25px;
+}
+
+.keyword-input {
+  height: 60px;
+  border-radius: 15px;
+  border: 2px solid #d1d5db;
+  font-size: 1.1rem;
+  padding: 15px 20px;
+  background: white;
+  color: #6b7280;
+  transition: all 0.3s ease;
+}
+
+.keyword-input:focus {
+  outline: none;
+  border-color: #4285F4;
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.3);
+  color: #2d3748;
+}
+
+.keyword-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Action Section */
+.action-section {
+  margin-bottom: 25px;
+}
+
+.action-btn {
+  width: 100%;
+  height: 50px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  color: #2d3748;
+}
+
+.action-btn.enviar {
+  background: #4285F4;
+  color: white;
+}
+
+.action-btn.borrar {
+  background: #E3F2FD;
+  border: 2px solid #4285F4;
+  color: #4285F4;
+}
+
+.action-btn.copiar {
+  background: #5A9FFF;
+  color: white;
+}
+
+.action-btn.descargar {
+  background: #BBDEFB;
+  color: #4285F4;
+  border: 2px solid #4285F4;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  filter: brightness(1.05);
+}
+
+.action-btn:active {
+  transform: translateY(0);
+}
+
+/* Results Section */
+.results-section {
+  background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+  border: 2px solid #4285F4;
+  border-radius: 15px;
+  padding: 20px;
+  min-height: 100px;
+}
+
+.domain-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.domain-item {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #2d3748;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.domain-item:hover {
+  background: white;
+  transform: translateX(5px);
+  border-color: #4285F4;
+  box-shadow: 0 4px 15px rgba(66, 133, 244, 0.2);
+}
+
+.domain-item.copied {
+  background: #E3F2FD;
+  border-color: #4285F4;
+  color: #4285F4;
+}
+
+/* Loading Animation */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  color: #2d3748;
+  font-weight: 600;
+}
+
+.loading::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid #2d3748;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Footer */
+.footer {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
   }
-};
-
-const extensions = [".com", ".net", ".org", ".io", ".co", ".dev", ".app", ".tech", ".online", ".digital"];
-
-let currentCategory = "divertido";
-let generatedDomains = [];
-
-// DOM Elements
-const keywordInput = document.getElementById('keyword-input');
-const enviarBtn = document.getElementById('enviar-btn');
-const borrarBtn = document.getElementById('borrar-btn');
-const copiarBtn = document.getElementById('copiar-btn');
-const descargarBtn = document.getElementById('descargar-btn');
-const resultsSection = document.getElementById('results-section');
-const domainList = document.getElementById('domain-list');
-const categoryBtns = document.querySelectorAll('.category-btn');
-
-// Event Listeners
-document.addEventListener('DOMContentLoaded', function() {
-  // Category button listeners
-  categoryBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      categoryBtns.forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      currentCategory = this.dataset.category;
-    });
-  });
-
-  // Set default active category
-  document.querySelector('.category-btn[data-category="divertido"]').classList.add('active');
-
-  // Action button listeners
-  enviarBtn.addEventListener('click', generateDomains);
-  borrarBtn.addEventListener('click', clearResults);
-  copiarBtn.addEventListener('click', copyAllDomains);
-  descargarBtn.addEventListener('click', downloadDomains);
-
-  // Enter key listener for input
-  keywordInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-      generateDomains();
-    }
-  });
-});
-
-function generateDomains() {
-  const keyword = keywordInput.value.trim().toLowerCase();
   
-  if (!keyword) {
-    alert('Por favor ingresa una palabra clave');
-    return;
-  }
-
-  showLoading();
-  
-  setTimeout(() => {
-    generatedDomains = [];
-    const data = domainData[currentCategory];
-    
-    // Generate combinations with keyword
-    for (let pronoun of data.pronouns) {
-      for (let adjective of data.adjectives) {
-        for (let extension of extensions.slice(0, 4)) { // Limit extensions for better UX
-          if (pronoun && adjective) {
-            generatedDomains.push(`${pronoun}${adjective}${keyword}${extension}`);
-          } else if (pronoun) {
-            generatedDomains.push(`${pronoun}${keyword}${extension}`);
-          } else if (adjective) {
-            generatedDomains.push(`${adjective}${keyword}${extension}`);
-          } else {
-            generatedDomains.push(`${keyword}${extension}`);
-          }
-        }
-      }
-    }
-    
-    // Remove duplicates and limit results
-    generatedDomains = [...new Set(generatedDomains)].slice(0, 12);
-    
-    displayDomains();
-  }, 1000);
-}
-
-function showLoading() {
-  resultsSection.classList.remove('d-none');
-  domainList.innerHTML = '<div class="loading">Generando dominios...</div>';
-}
-
-function displayDomains() {
-  domainList.innerHTML = '';
-  
-  generatedDomains.forEach((domain, index) => {
-    const domainItem = document.createElement('div');
-    domainItem.className = 'domain-item';
-    domainItem.textContent = domain;
-    domainItem.style.animationDelay = `${index * 0.1}s`;
-    
-    domainItem.addEventListener('click', function() {
-      copyToClipboard(domain);
-      this.classList.add('copied');
-      setTimeout(() => this.classList.remove('copied'), 2000);
-    });
-    
-    domainList.appendChild(domainItem);
-  });
-}
-
-function clearResults() {
-  keywordInput.value = '';
-  resultsSection.classList.add('d-none');
-  generatedDomains = [];
-}
-
-function copyToClipboard(text) {
-  navigator.clipboard.writeText(text).then(() => {
-    showToast(`Copiado: ${text}`);
-  }).catch(() => {
-    // Fallback for older browsers
-    const textArea = document.createElement('textarea');
-    textArea.value = text;
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textArea);
-    showToast(`Copiado: ${text}`);
-  });
-}
-
-function copyAllDomains() {
-  if (generatedDomains.length === 0) {
-    alert('No hay dominios para copiar');
-    return;
+  .main-card {
+    padding: 20px;
   }
   
-  const allDomains = generatedDomains.join('\n');
-  copyToClipboard(allDomains);
-}
-
-function downloadDomains() {
-  if (generatedDomains.length === 0) {
-    alert('No hay dominios para descargar');
-    return;
+  .logo {
+    max-width: 100px;
   }
   
-  const content = `Dominios generados para: ${keywordInput.value}\nCategoría: ${currentCategory}\n\n${generatedDomains.join('\n')}`;
-  const blob = new Blob([content], { type: 'text/plain' });
-  const url = window.URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `dominios_${keywordInput.value}_${currentCategory}.txt`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  window.URL.revokeObjectURL(url);
-  
-  showToast('Archivo descargado exitosamente');
-}
-
-function showToast(message) {
-  // Create a simple toast notification
-  const toast = document.createElement('div');
-  toast.style.cssText = `
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #10b981;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 10px;
-    font-weight: 600;
-    z-index: 1000;
-    animation: slideInToast 0.3s ease-out;
-  `;
-  toast.textContent = message;
-  
-  document.body.appendChild(toast);
-  
-  setTimeout(() => {
-    toast.style.animation = 'slideOutToast 0.3s ease-out';
-    setTimeout(() => document.body.removeChild(toast), 300);
-  }, 3000);
-}
-
-// Add toast animations to CSS dynamically
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes slideInToast {
-    0% { transform: translateX(100%); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
+  .header-section h1 {
+    font-size: 1.2rem;
   }
   
-  @keyframes slideOutToast {
-    0% { transform: translateX(0); opacity: 1; }
-    100% { transform: translateX(100%); opacity: 0; }
+  .category-btn {
+    height: 50px;
+    font-size: 0.9rem;
   }
-`;
-document.head.appendChild(style);
+  
+  .keyword-input {
+    height: 50px;
+    font-size: 1rem;
+  }
+  
+  .action-btn {
+    height: 45px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Animation for domain appearance */
+.domain-item {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
