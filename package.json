@@ -1,22 +1,15 @@
 {
   "name": "generador-de-nombres-de-dominios",
-  "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "start": "vite",
+    "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   },
+  "dependencies": {},
   "devDependencies": {
-    "gh-pages": "^6.3.0",
+    "gh-pages": "^5.0.0",
     "vite": "^5.2.0"
-  },
-  "dependencies": {
-    "bootstrap": "^5.1.1"
-  },
-  "engines": {
-    "node": ">=20.0.0"
   }
 }
