@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -7,17 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Generador de Dominios</title>
 
-  <!-- Favicon -->
   <link rel="icon" href="./src/assets/img/4geeks.ico" />
+  <link rel="stylesheet" href="./src/style.css" />
 
-  <!-- Tu CSS personalizado -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoUo1zWZgR9Wl9e9gqGaO7f5L+PCh9Bvc71F0hv9K8bSK4n" crossorigin="anonymous" />
 
-  <!-- FontAwesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
     integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" />
 </head>
@@ -25,7 +19,6 @@
 <body>
   <div class="container">
     <div class="card main-card">
-      <!-- Header -->
       <div class="header-section">
         <div class="logo-container">
           <img src="https://i.postimg.cc/NjLXxJsM/mundo-png.png" alt="Mundo" class="logo">
@@ -33,83 +26,61 @@
         <h1>👋 ¡Hola! Soy <span class="highlight">Patsy</span>, ¿qué dominio fabuloso necesitas?</h1>
       </div>
 
-      <!-- Category Buttons -->
       <div class="category-section">
         <div class="row g-3">
           <div class="col-6">
-            <button class="btn category-btn divertido" data-category="divertido">
-              🎉 Divertido
-            </button>
+            <button class="btn category-btn divertido" data-category="divertido">🎉 Divertido</button>
           </div>
           <div class="col-6">
-            <button class="btn category-btn profesional" data-category="profesional">
-              💼 Profesional
-            </button>
+            <button class="btn category-btn profesional" data-category="profesional">💼 Profesional</button>
           </div>
           <div class="col-6">
-            <button class="btn category-btn magico" data-category="magico">
-              ✨ Mágico
-            </button>
+            <button class="btn category-btn magico" data-category="magico">✨ Mágico</button>
           </div>
           <div class="col-6">
-            <button class="btn category-btn domain-hack" data-category="domain-hack">
-              💥 Domain Hack
-            </button>
+            <button class="btn category-btn domain-hack" data-category="domain-hack">💥 Domain Hack</button>
           </div>
         </div>
       </div>
 
-      <!-- Instructions -->
       <div class="instructions-section">
         <p>Escribe tu palabra clave o da click en <strong>Enviar</strong> para ver combinaciones mágicas ✨</p>
       </div>
 
-      <!-- Input Section -->
       <div class="input-section">
         <input type="text" id="keyword-input" class="form-control keyword-input" placeholder="ej. sparkle, viajero, idea...">
       </div>
 
-      <!-- Action Buttons -->
       <div class="action-section">
         <div class="row g-3">
           <div class="col-3">
-            <button id="enviar-btn" class="btn action-btn enviar">
-              🚀 Enviar
-            </button>
+            <button id="enviar-btn" class="btn action-btn enviar">🚀 Enviar</button>
           </div>
           <div class="col-3">
-            <button id="borrar-btn" class="btn action-btn borrar">
-              🗑️ Borrar
-            </button>
+            <button id="borrar-btn" class="btn action-btn borrar">🗑️ Borrar</button>
           </div>
           <div class="col-3">
-            <button id="copiar-btn" class="btn action-btn copiar">
-              📋 Copiar
-            </button>
+            <button id="copiar-btn" class="btn action-btn copiar">📋 Copiar</button>
           </div>
           <div class="col-3">
-            <button id="descargar-btn" class="btn action-btn descargar">
-              📥 Descargar
-            </button>
+            <button id="descargar-btn" class="btn action-btn descargar">📥 Descargar</button>
           </div>
         </div>
       </div>
 
-      <!-- Results Section -->
       <div id="results-section" class="results-section d-none">
         <div id="domain-list" class="domain-list"></div>
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
   <div class="fixed-bottom p-3 text-center footer">
     Hecho con ❤️ por Alejandra Bárcena
     <a href="https://www.4geeksacademy.com" target="_blank">4Geeks Academy</a>
   </div>
 
-  <!-- JavaScript -->
-  <script src="app.js"></script>
+  <script type="module" src="./src/app.js"></script>
 </body>
 
 </html>
+
